@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 02:57:03 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/02 02:57:03 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/02 16:06:18 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/02 16:06:18 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_putchar(char c);
+#include <unistd.h>
 
-int		main(void)
+void        ft_is_negative(int n)
 {
-	ft_putchar('a');
-} 
+    if (n < 0)
+    {
+        write(1, "N", 1);
+    }
+    else
+    {
+        write(1, "P", 1);
+    }
+    
+}

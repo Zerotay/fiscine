@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 02:57:03 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/02 02:57:03 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/02 15:51:08 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/02 15:51:08 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void		ft_putchar(char c);
+#include <unistd.h>
 
-int		main(void)
+void        ft_print_reverse_alphabet(void)
 {
-	ft_putchar('a');
-} 
+    char a;
+
+    a = 'z';
+    while (a >= 'a')
+    {
+        write(1, &a, 1);
+        a--;
+    }
+}
