@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 15:56:32 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/03 12:15:27 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/03 19:02:33 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/03 19:15:33 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void		ft_print_numbers(void)
+void		ft_swap(int *a, int *b)
 {
-	char	a;
+	int		save;
 
-	a = '0';
-	while (a <= '9')
-	{
-		write(1, &a, 1);
-		a++;
-	}
+	save = *a;
+	*a = *b;
+	*b = save;
 }

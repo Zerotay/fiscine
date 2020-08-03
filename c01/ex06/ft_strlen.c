@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 15:56:32 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/03 12:15:27 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/03 20:00:43 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/03 20:25:19 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void		ft_print_numbers(void)
+int		ft_strlen(char *str)
 {
-	char	a;
+	int val;
 
-	a = '0';
-	while (a <= '9')
-	{
-		write(1, &a, 1);
-		a++;
-	}
+	val = 0;
+	while (*(str + val) != 0)
+		val++;
+	return (val);
 }

@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 15:56:32 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/03 12:15:27 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/03 20:37:42 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/03 22:20:28 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void		ft_print_numbers(void)
+void		ft_rev_int_tab(int *tab, int size)
 {
-	char	a;
+	int		a;
+	int		count;
+	int		ch;
 
-	a = '0';
-	while (a <= '9')
+	count = 0;
+	while (count < size - 1)
 	{
-		write(1, &a, 1);
-		a++;
+		ch = 0;
+		a = tab[0];
+		while (ch < size - 1 - count)
+		{
+			tab[ch] = tab[ch + 1];
+			ch++;
+		}
+		tab[size - count - 1] = a;
+		count++;
 	}
 }

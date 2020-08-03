@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 15:56:32 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/03 12:15:27 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/03 19:01:14 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/03 19:01:33 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void		ft_print_numbers(void)
+void		ft_ultimate_ft(int *********nbr)
 {
-	char	a;
-
-	a = '0';
-	while (a <= '9')
-	{
-		write(1, &a, 1);
-		a++;
-	}
+	*********nbr = 42;
 }

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 15:56:32 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/03 12:15:27 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/03 19:53:18 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/03 19:59:14 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void		ft_print_numbers(void)
+void		ft_putstr(char *str)
 {
-	char	a;
+	int save;
 
-	a = '0';
-	while (a <= '9')
-	{
-		write(1, &a, 1);
-		a++;
-	}
+	save = 0;
+	while (*(str + save) != '\0')
+		save++;
+	write(1, str, save);
 }
