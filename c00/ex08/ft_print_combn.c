@@ -12,33 +12,31 @@
 
 #include <unistd.h>
 
-void default(void)
+void ft_print_combn(int n)
 {
-      char a;
+    char a[9];
+    int i;
 
-    a = '0';
-    while (a <= '9')
+    i = 0;
+    while (i < n)
     {
-        write(1, &a, 1);
-        a++;
-    } 
+        a[i] = i + '0';
+        i++;
+    }
+    write(1, a, n);
+    write(1, ", ", 2);
+    while(1)
+    {
+        i = n - 1;
+        while (a[i] == '9' - n + i + 1)
+            i--;
+        a[i]++;
+        while (++i< n)
+            a[i] = a[i - 1] + 1;
+        write(1, a, n);
+        if (a[0] == 10 - n + '0')
+        break ;
+        write(1, ", ", 2);
+    }
 }
 
-void        ft_print_combn(int n)
-{
-      int num[n];
-      int a;
-        int i ;
-      a = 0;
-
-      while (a < n)
-      {
-          num[a] = 0;
-         a++;
-     }
-     while (num[n] < '9')
-     {
-         write(1, &num[n], 1);
-     }
-  
-}
