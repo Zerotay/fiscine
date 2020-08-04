@@ -1,0 +1,6 @@
+Credentials cache: API:E95C3467-3F44-449E-9403-1A727382B483
+        Principal: dongguki@42SEOUL.KR
+
+  Issued                Expires               Principal
+Jul 27 19:32:00 2020  Jul 28 05:32:00 2020  krbtgt/42SEOUL.KR@42SEOUL.KR
+Jul 27 19:32:01 2020  Jul 28 05:32:00 2020  HTTP/student-storage.42seoul.kr@42SEOUL.KR
