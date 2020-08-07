@@ -62,7 +62,7 @@ void ft_putnbr_base(int nbr, char *base)
     i = 0;
     while (base[i])
         i++;
-    while(check(base))
+    if (check(base))
     {
         if (nbr < 0)
          {
