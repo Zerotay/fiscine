@@ -13,13 +13,14 @@ int main()
     ft_strlcpy(dest, src, n);
 
     write(1, dest, n);
+    printf("%d", ft_strlcpy(dest, src, n));
 
     write(1, "\n", 1);
 
     char cest[] = "hello world";
     char zrc[] = "fuck";
-    n = 8;
 
-    strncpy(cest, zrc, 8);
+    strlcpy(cest, zrc, n);
     write(1, cest, n);
+    printf("%d", strlcpy(cest, zrc, n));
 }
