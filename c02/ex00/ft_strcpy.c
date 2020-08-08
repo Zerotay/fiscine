@@ -6,21 +6,20 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 12:36:03 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/04 12:36:03 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/08 22:34:32 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src)
 {
-    int i ;
+	int	i;
 
-    i = 0;
-    while (1)
-    {
-        dest[i] = src[i];
-        i++;
-        if(src[i] == '\0')
-        break ;
-    }
-    return (dest);
+	i = 0;
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

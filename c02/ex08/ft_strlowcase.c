@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                     :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/04 17:47:56 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/04 17:47:56 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/08 19:46:48 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/08 19:46:51 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strlowcase(char *str)
+char	*ft_strlowcase(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (!(str[i] == '\0'))
-    {
-        if(str[i] >= 65 && str[i] <= 90)
-            str[i] += 32;
-        i++;
-    }
-    return str;
+	i = 0;
+	while (!(str[i] == '\0'))
+	{
+		if (str[i] >= 65 && str[i] <= 90)
+			str[i] += 32;
+		i++;
+	}
+	return (str);
 }

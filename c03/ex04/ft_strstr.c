@@ -6,35 +6,35 @@
 /*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 14:40:34 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/05 16:40:35 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/08 21:22:26 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char		*ft_strstr(char *str, char *to_find)
 {
-	int		i[3];
+	int		i[2];
+	int		j;
 
-	i[0] = -1;
-	i[1] = 0;
-	if (to_find[0] == '\0')
-		return (str);
-	while (str[++i[0]])
+	i[0] = 0;
+	j = 0;
+	while (str[i[0]])
 	{
-		if (to_find[0] == str[i[0]])
+		while (to_find[j])
 		{
-			while (to_find[i[1]])
-			{
-				if (to_find[i[1]] == str[i[0] + i[1]])
-					i[1]++;
-				else
-					break ;
-				if (to_find[i[1]] == '\0')
-					i[2] = i[0];
-			}
-			i[1] = 0;
+			if (to_find[j] == str[i[0] + j])
+				j++;
+			else
+				break ;
 		}
+		if (to_find[j] == '\0')
+		{
+			i[1] = i[0];
+			break ;
+		}
+		j = 0;
+		i[0]++;
 	}
-	if (i[1] == 0)
+	if (j == 0)
 		return (0);
-	return (&str[i[2]]);
+	return (&str[i[1]]);
 }

@@ -6,7 +6,7 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/02 21:59:57 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/03 18:56:37 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/08 20:30:44 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,17 @@ void ft_print_combn(int n)
         i++;
     }
     write(1, a, n);
-    write(1, ", ", 2);
     while(1)
     {
         i = n - 1;
         while (a[i] == '9' - n + i + 1)
             i--;
         a[i]++;
-        while (++i< n)
+        while (++i< n):
             a[i] = a[i - 1] + 1;
         write(1, a, n);
+		write(1, ", ", 2);
         if (a[0] == 10 - n + '0')
         break ;
-        write(1, ", ", 2);
     }
 }
