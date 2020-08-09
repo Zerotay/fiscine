@@ -5,9 +5,9 @@ void ft_putstr_non_printable(char *str);
 
 int main()
 {
-    char str[] = "";
+    char str[] = "Coucou\vtu vas bien ?";
     ft_putstr_non_printable(str);
-    printf("\n");
-    printf("rtr");
+   printf("-----------------------");
+    printf("Coucou\vtu vas bien ?");
 
 }

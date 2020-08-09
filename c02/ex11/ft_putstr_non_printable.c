@@ -14,8 +14,8 @@
 
 void	make16th(char str)
 {
-	int	a;
-	int	b;
+	char	a;
+	char	b;
 
 	a = (str / 16) % 16 + 48;
 	b = str % 16 + 48;
