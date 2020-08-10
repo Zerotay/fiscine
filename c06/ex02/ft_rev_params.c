@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/09 14:57:41 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/10 11:41:30 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/10 12:00:08 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/10 12:04:34 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
-{
-	int	i;
+#include <unistd.h>
 
-	if (nb < 2)
-		return (0);
-	i = 2;
-	while (i <= nb / i)
+int		main(int argc, char **argv)
+{
+	int i;
+	int j;
+
+	i = argc;
+	while (i > 1)
 	{
-		if (nb % i == 0)
-			return (0);
-		i++;
+		j = 0;
+		while (argv[i - 1][j])
+			j++;
+		write(1, &argv[i - 1][0], j);
+		write(1, "\n", 1);
+		i--;
 	}
-	return (1);
 }

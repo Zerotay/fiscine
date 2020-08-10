@@ -6,35 +6,46 @@
 /*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 14:40:34 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/08 21:22:26 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/10 19:43:44 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char		*ft_strstr(char *str, char *to_find)
+int		compare(char *str, char *to_find, int i, int len)
 {
-	int		i[2];
-	int		j;
+	int	j;
+	int	count;
 
-	i[0] = 0;
 	j = 0;
-	while (str[i[0]])
+	count = 0;
+	while (j < len)
 	{
-		while (to_find[j])
-		{
-			if (to_find[j] == str[i[0] + j])
-				j++;
-			else
-				break ;
-		}
-		if (to_find[j] == '\0')
-		{
-			i[1] = i[0];
-			break ;
-		}
-		j = 0;
-		i[0]++;
+		if (str[i + j] == to_find[j])
+			count++;
+		j++;
 	}
-	if (j == 0)
+	if (count == len)
+		return (1);
+	else
 		return (0);
-	return (&str[i[1]]);
+}
+
+char	*ft_strstr(char *str, char *to_find)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = 0;
+	if (to_find[0] == '\0')
+		return (str);
+	while (to_find[len])
+		len++;
+	while (str[i])
+	{
+		if (to_find[0] == str[i])
+			if (compare(str, to_find, i, len))
+				return (str + i);
+		i++;
+	}
+	return (0);
 }

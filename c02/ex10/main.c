@@ -8,19 +8,16 @@ int main()
 {
     char dest[] = "hello world";
     char src[] = "fuck";
-    unsigned int n = 8;
+    unsigned int n = 0;
 
-    ft_strlcpy(dest, src, n);
-
-    write(1, dest, n);
-    printf("%d", ft_strlcpy(dest, src, n));
+    printf("%d\n", ft_strlcpy(dest, src, n));
+	write(1, dest, 10);
 
     write(1, "\n", 1);
 
     char cest[] = "hello world";
     char zrc[] = "fuck";
 
-    strlcpy(cest, zrc, n);
-    write(1, cest, n);
-    printf("%d", strlcpy(cest, zrc, n));
+    printf("%lu\n", strlcpy(cest, zrc, n));
+	write(1, cest, 10);
 }

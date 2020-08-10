@@ -6,20 +6,20 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 14:42:50 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/09 14:42:50 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/10 11:40:55 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_sqrt(int nb)
+int		ft_sqrt(int nb)
 {
-    int i;
+	int	i;
 
-    i = 1;
-    while (i <= nb / i)
-    {
-        if (i * i== nb)
-            return (i);
-        i++;
-    }
-    return (0);
+	i = 1;
+	while (i <= nb / i)
+	{
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (0);
 }

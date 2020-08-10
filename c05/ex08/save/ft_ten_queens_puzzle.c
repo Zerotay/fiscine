@@ -6,14 +6,13 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 23:43:23 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/10 11:35:38 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/09 23:43:23 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-int g_chess[10][10];
 
-void print(int *g_chess[])
+void print(int **chess)
 {
     int i;
     int j;
@@ -24,7 +23,7 @@ void print(int *g_chess[])
         j = 0;
         while (j < 10)
         {
-            if (g_chess[i][j] == 5)
+            if (chess[i][j] == 5)
                 write(1, &j, 1);
             j++;
         }
@@ -32,13 +31,13 @@ void print(int *g_chess[])
     }
     write(1, "\n", 1);
 }
-int checkok(int g_chess[], int j)
+int checkok(int *chess, int j)
 {
-    if (g_chess[j] == 0)
+    if (chess[j] == 0)
         return (1);
     return (0);
 }
-void init(int *g_chess[])
+void init(int **chess)
 {
     int i;
     int j;
@@ -49,14 +48,14 @@ void init(int *g_chess[])
         j = 0;
         while (j < 10)
         {
-            if (g_chess[i][j] != 5)
-                g_chess[i][j] = 0;
+            if (chess[i][j] != 5)
+                chess[i][j] = 0;
             j++;
         }
         i++;
     }
 }
-void makecond(int *g_chess[])
+void makecond(int **chess)
 {
     int i;
     int j;
@@ -69,11 +68,11 @@ void makecond(int *g_chess[])
         while (j < 10)
         {
             n = 1;
-            while (g_chess[i][j] == 5 && n < 10 - i)
+            while (chess[i][j] == 5 && n < 10 - i)
             {
-                g_chess[i + n][j] = 3;
-                g_chess[i + n][j - n] = 3;
-                g_chess[i + n][j + n] = 3;
+                chess[i + n][j] = 3;
+                chess[i + n][j - n] = 3;
+                chess[i + n][j + n] = 3;
                 n++;
             }            
             j++;
@@ -82,33 +81,34 @@ void makecond(int *g_chess[])
     }
 
 }
-void recur(int n, int *g_chess[], int *answer)
+void recur(int n, int **chess, int *answer)
 {
     int j;
 
     if (n == 10)
     {
-        print(g_chess);
+        print(chess);
         (*answer)++;
     }
     j = 0;
     while (j < 10)
     {
-        makecond(g_chess);
-        if (checkok(g_chess[n], j))
+        makecond(chess);
+        if (checkok(chess[n], j))
         {
-            g_chess[n][j] = 5;
-            makecond(g_chess);
-            recur(n+1, g_chess, answer);
+            chess[n][j] = 5;
+            makecond(chess);
+            recur(n+1, chess, answer);
         }
-        g_chess[n][j] = 0;
-        init(g_chess);
+        chess[n][j] = 0;
+        init(chess);
         j++;
     }
 }
 
 int ft_ten_queens_puzzle(void)
 {
+    int chess[10][10];
     int i;
     int j;
     int n;
@@ -121,14 +121,14 @@ int ft_ten_queens_puzzle(void)
    {
        while (j < 10)
        {
-           g_chess[i][j] = 0;
+           chess[i][j] = 0;
            j++;
        }
        i++;
        j = 0;
    }
     n = 0;
-    recur(n , g_chess[], &answer);
+    recur(n , chess, &answer);
 
     return (answer);
 }

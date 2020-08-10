@@ -6,7 +6,7 @@
 /*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/05 16:45:55 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/09 13:55:31 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/10 20:48:08 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@ unsigned int		ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	i;
 	unsigned int	j;
+	unsigned int	k;
 
 	i = 0;
-	while (dest[i])
+	while (dest[i] != '\0' )
 		i++;
 	j = 0;
-	while (i + j < size - 1 && src[j] != '\0')
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	dest[i + j] = '\0';
 	while (src[j])
 		j++;
-	if (i > size)
+	k = 0;
+	while (i + k < size - 1 && src[k] != '\0')
+	{
+		dest[i + k] = src[k];
+		k++;
+	}
+	dest[i + k] = '\0';
+	if (size <= i)
 		return (size + j);
 	return (i + j);
 }

@@ -6,19 +6,18 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 01:18:01 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/10 01:18:01 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/10 11:58:57 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (argv[0][i])   
-        i++;
-    write(1, argv[0], i);
-    
+	i = 0;
+	while (argv[0][i])
+		i++;
+	write(1, argv[0], i);
 }

@@ -6,14 +6,14 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 15:54:49 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/08 22:40:23 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/10 22:53:07 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char				*ft_strncpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int	i;
-	int j;
+	int				j;
 
 	i = 0;
 	j = 0;
@@ -24,7 +24,8 @@ char				*ft_strncpy(char *dest, char *src, unsigned int n)
 			j = 1;
 			dest[i] = '\0';
 		}
-		dest[i] = src[i];
+		else
+			dest[i] = src[i];
 		i++;
 	}
 	return (dest);

@@ -6,16 +6,16 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 21:44:05 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/08 22:47:10 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/10 14:47:53 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	make16th(char str)
+void	make16th(unsigned char str)
 {
-	char	a;
-	char	b;
+	unsigned char	a;
+	unsigned char	b;
 
 	a = (str / 16) % 16 + 48;
 	b = str % 16 + 48;
