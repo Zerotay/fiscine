@@ -12,34 +12,70 @@
 
 #include <unistd.h>
 
-int			print(int nb)
+void		positive(int nb)
 {
-	char	i;
+	char	p[10];
+	int		a;
+	int		b;
 
-	if (nb < 10)
+	a = 1;
+	b = 0;
+	while (b < 10)
 	{
-		i = nb + 48;
-		write(1, &i, 1);
-		return (0);
+		if (nb / a < 1)
+		{
+			break ;
+		}
+		p[b] = (nb / a) % 10 + 48;
+		a *= 10;
+		b++;
 	}
-	i = nb % 10 + 48;
-	nb /= 10;
-	print(nb);
-	write(1, &i, 1);
-	return (0);
+	b -= 1;
+	while (b >= 0)
+	{
+		write(1, &p[b], 1);
+		b--;
+	}
+}
+
+void		zero(void)
+{
+	write(1, "0", 1);
+}
+
+void		negative(int nb)
+{
+	char	p[10];
+	int		a;
+	int		b;
+
+	a = 1;
+	b = 0;
+	while (b < 10)
+	{
+		if (nb / a > -1)
+		{
+			break ;
+		}
+		p[b] = (nb / a) % 10 * -1 + 48;
+		a *= 10;
+		b++;
+	}
+	b -= 1;
+	write(1, "-", 1);
+	while (b >= 0)
+	{
+		write(1, &p[b], 1);
+		b--;
+	}
 }
 
 void		ft_putnbr(int nb)
 {
-	char	i;
-	if (nb < 0)
-	{
-		i = nb % 10 * -1 + 48;
-		nb /= -10;
-		write(1, "-", 1);
-		print(nb);
-		write(1, &i, 1);
-	}
+	if (nb > 0)
+		positive(nb);
+	else if (nb == 0)
+		zero();
 	else
-		print(nb);    
+		negative(nb);
 }

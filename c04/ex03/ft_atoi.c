@@ -41,10 +41,10 @@ int		ft_atoi(char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		k += str[i] - 48;
-		k *= 10;
 		i++;
+		if (str[i] >= '0' && str[i] <= '9')
+			k *= 10;
 	}
-	k /= 10;
 	if (j % 2 == 1)
 		k *= -1;
 	return (k);

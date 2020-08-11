@@ -9,24 +9,18 @@
 /*   Updated: 2020/08/10 20:00:43 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include <unistd.h>
 
-int		print(int nbr, int i, char *base)
+void		print(int nbr, int i, char *base)
 {
-	int	j;
-
 	if (nbr < i)
+		write(1, &base[nbr % i], 1);
+	else
 	{
-		j = nbr % i;
-		write(1, &base[j], 1);
-		return (0);
+		print(nbr / i, i, base);
+		write(1, &base[nbr % i], 1);
 	}
-	j = nbr % i;
-	nbr /= i;
-	print(nbr, i, base);
-	write(1, &base[j], 1);
-	return (0);
 }
 
 int		check(char *base)
@@ -59,7 +53,6 @@ void	ft_putnbr_base(int nbr, char *base)
 	int	i;
 	int	j;
 
-	check(base);
 	i = 0;
 	while (base[i])
 		i++;
@@ -69,8 +62,8 @@ void	ft_putnbr_base(int nbr, char *base)
 		{
 			j = nbr % i * -1;
 			write(1, "-", 1);
-			nbr = nbr / i * -1;
-			print(nbr, i, base);
+			if (nbr / i * -1 > 0)
+				print(nbr / i * -1, i, base);
 			write(1, &base[j], 1);
 		}
 		else

@@ -7,5 +7,10 @@ int main()
 	int min = 5;
 	int max = 10;
 
-	printf("%d", ft_range(min, max));
+	int i = 0;
+	while (i < max - min)
+	{
+		printf("%d", ft_range(min, max)[i]);
+		i++;
+	}
 }
