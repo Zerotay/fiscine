@@ -6,113 +6,88 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 20:43:37 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/11 20:43:37 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/12 23:23:50 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		checkbase(char *base)
-{
-	int	i;
-	int	j;
+#include <stdlib.h>
 
-	if (base[0] == '\0' || base[1] == '\0')
-		return (1);
-	i = 0;
-	j = i + 1;
-	while (base[i])
+int			checkbase(char *base);
+
+void		checkatoi(char *str, int *i, int *j);
+
+void		lastletter(char *str, int *i, char *base);
+
+int			answer(char *str, int i, char *base, int length);
+
+int			len(char *base_to);
+
+int			alength(int p, char *base_to)
+{
+	int		i;
+	int		length;
+
+	i = len(base_to);
+	length = 1;
+	while (p > i)
 	{
-		while (base[j])
+		p /= i;
+		length++;
+	}
+	return (length);
+}
+
+char		*final(int p, char *base_to, int alength, int j)
+{
+	char	*arr;
+	int		i;
+	int		t;
+	int		k;
+	int		q;
+
+	t = len(base_to);
+	k = 1;
+	if (j % 2 == 1)
+	{
+		arr = (char *)malloc(sizeof(char) * (alength + 2));
+		i = alength + 1;
+		arr[i] = 0;
+		while (i > 0)
 		{
-			if (base[i] == base[j])
-				return (1);
-			j++;
+			q = (p / k % t) * -1;
+			arr[i - 1] = base_to[q];
+			k *= t;
+			i--;
 		}
-		if (base[i] == '+' || base[i] == '-')
-			return (1);
-		if ((base[i] > 8 && base[i] < 14) || base[i] == 32)
-			return (1);
-		i++;
-		j = i + 1;
+		arr[0] = '-';
 	}
-	return (0);
-}
-
-void	checkatoi(char *str, int *i, int *j)
-{
-	while ((str[*i] > 8 && str[*i] < 14) || str[*i] == 32)
+	else
 	{
-		(*i)++;
-	}
-	while (str[*i] == '+' || str[*i] == '-')
-	{
-		if (str[*i] == '-')
-			(*j)++;
-		(*i)++;
-	}
-}
-
-void	lastletter(char *str, int *i, char *base)
-{
-	int	k;
-
-	k = 0;
-	while (str[*i])
-	{
-		while (base[k])
+		arr = (char *)malloc(sizeof(char) * (alength + 1));
+		i = alength;
+		arr[i] = 0;
+		while (i > 0)
 		{
-			if (str[*i] == base[k])
-				break ;
-			k++;
+			q = (p / k) % t;
+			arr[i - 1] = base_to[q];
+			k *= t;
+			i--;
 		}
-		if (base[k] == '\0')
-			break ;
-		(*i)++;
-		k = 0;
 	}
+	return (arr);
 }
 
-int		answer(char *str, int i, char *base, int length)
+char		*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int	k;
-	int	b;
-	int	final;
-
-	k = 0;
-	b = 1;
-	final = 0;
-	while (str[i - 1] != '+' && str[i - 1] != '-')
-	{
-		while (base[k])
-		{
-			if (str[i - 1] == base[k])
-			{
-				final += (k * b);
-				b *= length;
-				break ;
-			}
-			k++;
-		}
-		if (base[k] == '\0')
-			break ;
-		k = 0;
-		i--;
-	}
-	return (final);
-}
-
-char
-
-char		*ft_atoi_base(char *nbr, char *base_from, char *base_to)
-{
-	int	i;
-	int	j;
-	int	length;
-	int	p;
-    char ans;
+	int		i;
+	int		j;
+	int		length;
+	int		p;
+	char	*ans;
 
 	i = 0;
 	j = 0;
-	if (checkbase(base_from)!!!)
+	if (checkbase(base_from) || checkbase(base_to))
 		return (0);
 	length = 0;
 	while (base_from[length])
@@ -120,8 +95,11 @@ char		*ft_atoi_base(char *nbr, char *base_from, char *base_to)
 	checkatoi(nbr, &i, &j);
 	lastletter(nbr, &i, base_from);
 	p = answer(nbr, i, base_from, length);
-    ans = ~~~~~~
 	if (j % 2 == 1)
 		p *= -1;
-	return (p);
+	if (p == -2147483648)
+		ans = final(p, base_to, 10, j);
+	else
+		ans = final(p, base_to, alength(p, base_to), j);
+	return (ans);
 }

@@ -6,7 +6,7 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 23:43:23 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/10 11:35:38 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/12 21:08:58 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ int ft_ten_queens_puzzle(void)
        j = 0;
    }
     n = 0;
-    recur(n , g_chess[], &answer);
+    recur(n , g_chess, &answer);
 
     return (answer);
 }

@@ -6,7 +6,7 @@
 /*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 12:05:12 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/10 14:23:48 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/12 21:17:35 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,24 @@ int			compare(char *argv1, char *argv2)
 	}
 	return (0);
 }
-void print(int 
+
+void		print(int argc, char **argv)
+{
+	int		j;
+	int		k;
+
+	j = 1;
+	while (j < argc)
+	{
+		k = 0;
+		while (argv[j][k])
+			k++;
+		write(1, &argv[j][0], k);
+		write(1, "\n", 1);
+		j++;
+	}
+}
+
 int			main(int argc, char **argv)
 {
 	int		j;
@@ -50,14 +67,5 @@ int			main(int argc, char **argv)
 		}
 		j++;
 	}
-	j = 1;
-	while (j < argc)
-	{
-		k = 0;
-		while (argv[j][k])
-			k++;
-		write(1, &argv[j][0], k);
-		write(1, "\n", 1);
-		j++;
-	}
+	print(argc, argv);
 }

@@ -6,13 +6,13 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 21:42:03 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/10 20:00:43 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/12 17:41:32 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <unistd.h>
 
-void		print(int nbr, int i, char *base)
+void	print(int nbr, int i, char *base)
 {
 	if (nbr < i)
 		write(1, &base[nbr % i], 1);

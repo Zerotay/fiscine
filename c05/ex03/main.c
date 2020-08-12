@@ -3,8 +3,8 @@ int ft_recursive_power(int nb, int power);
 
 int main()
 {
-    int nb = -3;
-    int power = 3;
+    int nb = -2;
+    int power = 10;
 
     printf("%d", ft_recursive_power(nb, power));
 

@@ -8,7 +8,7 @@ int main()
 {
     char dest[] = "hello world";
     char src[] = "fuck";
-    unsigned int n = 0;
+    unsigned int n = -1;
 
     printf("%d\n", ft_strlcpy(dest, src, n));
 	write(1, dest, 10);

@@ -7,7 +7,7 @@ int main()
 {
 	char dest[100] = "123456";
 	char src[] = " 789123456";
-	unsigned int size = 30;
+	unsigned int size = 0;
 
 	printf("%s %lu\n", dest, strlcat(dest, src, size));
 

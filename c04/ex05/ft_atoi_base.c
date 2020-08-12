@@ -6,10 +6,9 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/06 22:25:42 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/10 20:03:40 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/12 22:58:37 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 int		checkbase(char *base)
 {
 	int	i;
