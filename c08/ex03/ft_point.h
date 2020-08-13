@@ -1,4 +1,10 @@
 #ifndef _FT_POINT_H
 # define _FT_POINT_H
 
-# define 
+typedef struct s_what
+{
+	int x;
+	int y;
+}t_point;
+
+#endif
