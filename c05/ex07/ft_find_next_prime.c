@@ -6,7 +6,7 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/09 15:07:56 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/12 21:07:45 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/13 22:19:34 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int		ft_find_next_prime(int nb)
 	while (1)
 	{
 		i = 2;
-		while (i < nb)
+		while (i * i < nb)
 		{
 			if (nb % i == 0)
 				break ;
 			i++;
 		}
-		if (i == nb)
+		if (i * i > nb)
 			return (nb);
 		nb++;
 	}
