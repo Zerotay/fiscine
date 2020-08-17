@@ -80,7 +80,10 @@ int			answer(char *str, int i, char *base, int length)
 	k = 0;
 	b = 1;
 	fin = 0;
-	while (str[i - 1] != '+' && str[i - 1] != '-')
+	while (str[i - 1] != '+' 
+							&& str[i - 1] != '-' 
+							&& !(str[i - 1] > 8 && str[i - 1] < 14)
+							&& str[i - 1] != 32)
 	{
 		while (base[k])
 		{

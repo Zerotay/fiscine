@@ -30,7 +30,6 @@ int			guide(int size, char **strs, char *sep, char **i)
 	int		count;
 
 	j = -1;
-	k = 0;
 	count = 0;
 	seplen = strlength(sep);
 	while (++j < size)
@@ -38,12 +37,12 @@ int			guide(int size, char **strs, char *sep, char **i)
 		k = 0;
 		while (strs[j][k])
 			k++;
-		count += (k - 1);
-		i[2 * j] = (char *)malloc(sizeof(char) * (k - 1));
+		count += (k);
+		i[2 * j] = (char *)malloc(sizeof(char) * (k));
 		i[2 * j] = strs[j];
 		if (j != 0)
 		{
-			i[2 * j - 1] = (char *)malloc(sizeof(char) * (seplen - 1));
+			i[2 * j - 1] = (char *)malloc(sizeof(char) * (seplen));
 			i[2 * j - 1] = sep;
 		}
 	}
@@ -89,8 +88,8 @@ char		*ft_strjoin(int size, char **strs, char *sep)
 		return (only);
 	}
 	seplen = strlength(sep);
-	i = (char **)malloc(sizeof(char) * (size * 2 - 1));
-	count = (seplen - 1) * (size - 1);
+	i = (char **)malloc(sizeof(char *) * (size * 2 - 1));
+	count = (seplen) * (size - 1);
 	count += guide(size, strs, sep, i);
 	return (answers(count, i, size));
 }
