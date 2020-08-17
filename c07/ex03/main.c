@@ -13,7 +13,7 @@ int main(void)
     char *i = ft_strjoin(size, strs, sep);
 
     
-    printf("%s", i);
+    printf("%s\n", i);
     free(i);
     return 0;
 }
