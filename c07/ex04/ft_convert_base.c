@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 int			checkbase(char *base);
 
@@ -29,49 +30,40 @@ int			alength(int p, char *base_to)
 
 	i = len(base_to);
 	length = 1;
-	while (p > i)
+	while (p >= i)
 	{
 		p /= i;
 		length++;
 	}
+	printf("length = %d\n", length);
 	return (length);
 }
 
-char		*final(int p, char *base_to, int alength, int j)
+char		*final(int p, char *base_to, int alength)
 {
 	char	*arr;
-	int		i;
-	int		t;
 	int		k;
-	int		q;
 
-	t = len(base_to);
 	k = 1;
-	if (j % 2 == 1)
+	if (p < 0)
 	{
 		arr = (char *)malloc(sizeof(char) * (alength + 2));
-		i = alength + 1;
-		arr[i] = 0;
-		while (i > 0)
+		arr[alength++ + 1] = 0;
+		while (--alength + 1 > 0)
 		{
-			q = (p / k % t) * -1;
-			arr[i - 1] = base_to[q];
-			k *= t;
-			i--;
+			arr[alength + 1 - 1] = base_to[(p / k % len(base_to)) * -1];
+			k *= len(base_to);
 		}
 		arr[0] = '-';
 	}
 	else
 	{
 		arr = (char *)malloc(sizeof(char) * (alength + 1));
-		i = alength;
-		arr[i] = 0;
-		while (i > 0)
+		arr[alength++] = 0;
+		while (--alength > 0)
 		{
-			q = (p / k) % t;
-			arr[i - 1] = base_to[q];
-			k *= t;
-			i--;
+			arr[alength - 1] = base_to[(p / k) % len(base_to)];
+			k *= len(base_to);
 		}
 	}
 	return (arr);
@@ -95,11 +87,15 @@ char		*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	checkatoi(nbr, &i, &j);
 	lastletter(nbr, &i, base_from);
 	p = answer(nbr, i, base_from, length);
+	printf("p =%d\n", p);
 	if (j % 2 == 1)
 		p *= -1;
 	if (p == -2147483648)
-		ans = final(p, base_to, 10, j);
+		ans = final(p, base_to, 10);
+	else if (p < 0)
+		ans = final(p, base_to, alength((p * -1), base_to));
 	else
-		ans = final(p, base_to, alength(p, base_to), j);
+		ans = final(p, base_to, alength(p, base_to));
+
 	return (ans);
 }
