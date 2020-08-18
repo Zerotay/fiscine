@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dongguki </var/mail/dongguki>              +#+  +:+       +#+        */
+/*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/18 16:41:14 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/18 17:18:22 by dongguki         ###   ########.fr       */
+/*   Created: 2020/08/18 19:30:48 by dongguki          #+#    #+#             */
+/*   Updated: 2020/08/18 19:31:15 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,17 @@ int			set(char i, char *charset)
 	return (0);
 }
 
-void		make_partion(char *answer, char *str, int *i, int *j)
-{
-	int		k;
-
-	answer = (char *)malloc(sizeof(char) * (*i - *j + 2));
-	answer[*i - *j + 1] = 0;
-	k = 0;
-	while (*j + k < *i + 1)
-	{
-		answer[k] = str[*j + k];
-		k++;
-	}
-}
-
 void		make_split(char **answer, char *charset, char *str)
 {
 	int		i;
 	int		j;
 	int		ans;
+	int		k;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	ans = 0;
-	while (str[i])
+	while (str[++i])
 	{
 		if (((i == 0) && !set(str[i - 1], charset))
 				|| (set(str[i - 1], charset) && !set(str[i], charset)))
@@ -57,10 +44,13 @@ void		make_split(char **answer, char *charset, char *str)
 		if ((!set(str[i], charset) && set(str[i + 1], charset))
 				|| (!str[i + 1] && !set(str[i], charset)))
 		{
-			make_partion(answer[ans], str, &i, &j);
+			answer[ans] = (char *)malloc(sizeof(char) * (i - j + 2));
+			answer[ans][i - j + 1] = 0;
+			k = -1;
+			while (j + ++k < i + 1)
+				answer[ans][k] = str[j + k];
 			ans++;
 		}
-		i++;
 	}
 }
 
