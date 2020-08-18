@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int			checkbase(char *base)
+int				checkbase(char *base)
 {
-	int		i;
-	int		j;
+	long long	i;
+	long long	j;
 
 	if (base[0] == '\0' || base[1] == '\0')
 		return (1);
@@ -37,7 +37,7 @@ int			checkbase(char *base)
 	return (0);
 }
 
-void		checkatoi(char *str, int *i, int *j)
+void			checkatoi(char *str, long long *i, long long *j)
 {
 	while ((str[*i] > 8 && str[*i] < 14) || str[*i] == 32)
 	{
@@ -51,9 +51,9 @@ void		checkatoi(char *str, int *i, int *j)
 	}
 }
 
-void		lastletter(char *str, int *i, char *base)
+void			lastletter(char *str, long long *i, char *base)
 {
-	int		k;
+	long long	k;
 
 	k = 0;
 	while (str[*i])
@@ -71,11 +71,11 @@ void		lastletter(char *str, int *i, char *base)
 	}
 }
 
-int			answer(char *str, int i, char *base, int length)
+long long		answer(char *str, long long i, char *base, long long length)
 {
-	int		k;
-	int		b;
-	int		fin;
+	long long	k;
+	long long	b;
+	long long	fin;
 
 	k = 0;
 	b = 1;
@@ -89,7 +89,7 @@ int			answer(char *str, int i, char *base, int length)
 			if (str[i - 1] == base[k])
 			{
 				fin += (k * b);
-				b *= length;
+				b *= (long long) length;
 				break ;
 			}
 		}
@@ -100,9 +100,9 @@ int			answer(char *str, int i, char *base, int length)
 	return (fin);
 }
 
-int			len(char *base_to)
+long long		len(char *base_to)
 {
-	int		i;
+	long long	i;
 
 	i = 0;
 	while (base_to[i])

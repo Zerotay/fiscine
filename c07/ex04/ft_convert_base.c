@@ -12,20 +12,20 @@
 
 #include <stdlib.h>
 
-int			checkbase(char *base);
+int				checkbase(char *base);
 
-void		checkatoi(char *str, int *i, int *j);
+void			checkatoi(char *str, long long *i, long long *j);
 
-void		lastletter(char *str, int *i, char *base);
+void			lastletter(char *str, long long *i, char *base);
 
-int			answer(char *str, int i, char *base, int length);
+long long		answer(char *str, long long i, char *base, long long length);
 
-int			len(char *base_to);
+long long		len(char *base_to);
 
-int			alength(int p, char *base_to)
+long long		alength(long long p, char *base_to)
 {
-	int		i;
-	int		length;
+	long long	i;
+	long long	length;
 
 	i = len(base_to);
 	length = 1;
@@ -37,21 +37,21 @@ int			alength(int p, char *base_to)
 	return (length);
 }
 
-char		*makemalloc(int alength)
+char			*makemalloc(long long alength)
 {
 	char *ar;
 
 	ar = (char *)malloc(sizeof(char) * (alength + 1));
 	if (ar == 0)
 		return (0);
-	ar[alength + 1] = 0;
+	ar[alength] = 0;
 	return (ar);
 }
 
-char		*final(int p, char *base_to, int alength)
+char			*final(long long p, char *base_to, long long alength)
 {
-	char	*arr;
-	int		k;
+	char		*arr;
+	long long	k;
 
 	k = 1;
 	if (p < 0)
@@ -76,13 +76,13 @@ char		*final(int p, char *base_to, int alength)
 	return (arr);
 }
 
-char		*ft_convert_base(char *nbr, char *base_from, char *base_to)
+char			*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int		i;
-	int		j;
-	int		length;
-	int		p;
-	char	*ans;
+	long long	i;
+	long long	j;
+	long long	length;
+	long long	p;
+	char		*ans;
 
 	i = 0;
 	j = 0;
@@ -96,9 +96,7 @@ char		*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	p = answer(nbr, i, base_from, length);
 	if (j % 2 == 1)
 		p *= -1;
-	if (p == -2147483648)
-		ans = final(p, base_to, 10);
-	else if (p < 0)
+	if (p < 0)
 		ans = final(p, base_to, alength((p * -1), base_to));
 	else
 		ans = final(p, base_to, alength(p, base_to));

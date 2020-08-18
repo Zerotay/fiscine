@@ -35,7 +35,7 @@ void		pr_num(int size)
 		write(1, &i, 1);
 		return ;
 	}
-	i = size / 10 % 10 + 48;
+	i = size % 10 + 48;
 	pr_num(size / 10);
 	write(1, &i, 1);
 }
