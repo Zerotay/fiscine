@@ -6,7 +6,7 @@
 /*   By: dongguki <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 23:18:32 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/12 23:19:43 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/18 15:24:58 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,11 @@ int			answer(char *str, int i, char *base, int length)
 	k = 0;
 	b = 1;
 	fin = 0;
-	while (str[i - 1] != '+' 
-							&& str[i - 1] != '-' 
-							&& !(str[i - 1] > 8 && str[i - 1] < 14)
-							&& str[i - 1] != 32)
+	while (str[i - 1] != '+' && str[i - 1] != '-' && str[i - 1] != 32
+							&& !(str[i - 1] > 8 && str[i - 1] < 14))
 	{
-		while (base[k])
+		k = -1;
+		while (base[++k])
 		{
 			if (str[i - 1] == base[k])
 			{
@@ -93,11 +92,9 @@ int			answer(char *str, int i, char *base, int length)
 				b *= length;
 				break ;
 			}
-			k++;
 		}
 		if (base[k] == '\0')
 			break ;
-		k = 0;
 		i--;
 	}
 	return (fin);

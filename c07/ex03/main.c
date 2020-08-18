@@ -7,9 +7,10 @@ int main(void)
 {
 
     
-    char *strs[] = {"good", "morning", "rewind", "your", "clockwork", "mainspring"};
+    char *strs[] = {"good"};
+	//, "morning", "rewind", "your", "clockwork", "mainspring"};
     char sep[] = ",m ";
-    int size = 6;
+    int size = 1;
     char *i = ft_strjoin(size, strs, sep);
 
     

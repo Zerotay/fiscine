@@ -6,12 +6,11 @@
 /*   By: dongguki <dongguki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/11 20:43:37 by dongguki          #+#    #+#             */
-/*   Updated: 2020/08/12 23:23:50 by dongguki         ###   ########.fr       */
+/*   Updated: 2020/08/18 16:34:45 by dongguki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int			checkbase(char *base);
 
@@ -35,8 +34,18 @@ int			alength(int p, char *base_to)
 		p /= i;
 		length++;
 	}
-	printf("length = %d\n", length);
 	return (length);
+}
+
+char		*makemalloc(int alength)
+{
+	char *ar;
+
+	ar = (char *)malloc(sizeof(char) * (alength + 1));
+	if (ar == 0)
+		return (0);
+	ar[alength + 1] = 0;
+	return (ar);
 }
 
 char		*final(int p, char *base_to, int alength)
@@ -47,8 +56,7 @@ char		*final(int p, char *base_to, int alength)
 	k = 1;
 	if (p < 0)
 	{
-		arr = (char *)malloc(sizeof(char) * (alength + 2));
-		arr[alength++ + 1] = 0;
+		arr = makemalloc(alength++ + 1);
 		while (--alength + 1 > 0)
 		{
 			arr[alength + 1 - 1] = base_to[(p / k % len(base_to)) * -1];
@@ -58,8 +66,7 @@ char		*final(int p, char *base_to, int alength)
 	}
 	else
 	{
-		arr = (char *)malloc(sizeof(char) * (alength + 1));
-		arr[alength++] = 0;
+		arr = makemalloc(alength++);
 		while (--alength > 0)
 		{
 			arr[alength - 1] = base_to[(p / k) % len(base_to)];
@@ -87,7 +94,6 @@ char		*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	checkatoi(nbr, &i, &j);
 	lastletter(nbr, &i, base_from);
 	p = answer(nbr, i, base_from, length);
-	printf("p =%d\n", p);
 	if (j % 2 == 1)
 		p *= -1;
 	if (p == -2147483648)
@@ -96,6 +102,5 @@ char		*ft_convert_base(char *nbr, char *base_from, char *base_to)
 		ans = final(p, base_to, alength((p * -1), base_to));
 	else
 		ans = final(p, base_to, alength(p, base_to));
-
 	return (ans);
 }

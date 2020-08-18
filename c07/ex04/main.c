@@ -4,9 +4,9 @@ char *ft_convert_base(char *nbr, char *base_from, char *base_to);
 
 int main()
 {
-	char *nbr = "16a43";
+	char *nbr = "  --++--16d67a43";
 	char *base_from = "0123456789";
-	char *base_to = "0123456789";
+	char *base_to = "01";
 	char *j = ft_convert_base(nbr, base_from, base_to);
 
 		printf("%s\n", j);
