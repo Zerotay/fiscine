@@ -11,14 +11,17 @@
 /* ************************************************************************** */
 #include <unistd.h>
 #include "ft.h"
-#include <stdio.h>
 
 int check(char **op)
 {
     if (op[2][1] != 0)
+    {
+        write(1, "0", 1);
         return (1);
+    }
     if (op[2][0] == '+' || op[2][0] == '-' || op[2][0] == '*' || op[2][0] == '/' || op[2][0] == '%')
         return (0);
+    write(1, "0", 1);
     return (1);
 }
 
@@ -60,18 +63,11 @@ int main(int argc, char **argv)
     int answer;
 
     if (argc != 4)
-
         return (0);
     val1 = ft_atoi(argv[1]);
     val2 = ft_atoi(argv[3]);
-    printf( "val1 == %d\n", val1);
-    printf( "val2 == %d\n", val2);
-     if (check(argv))
-    {
-        write(1, "0", 1);
+    if (check(argv))
         return (0);
-    }
-    
     if (val2 == 0 && argv[2][0] == '/')
     {
         write(1, "Stop : division by zero\n", 24);
@@ -83,7 +79,6 @@ int main(int argc, char **argv)
         return (0);
     }
     answer = calculate(val1, val2, argv[2][0]);
-    printf("answer is %d\n", answer);
     print(answer);
     return (0);
 }
